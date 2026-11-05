@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Como está sendo trabalhar com a gente? | Criaê Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --cream:#F4F1E8;
+    --ink:#0E1A12;
+    --red:#FF3B14;
+    --lime:#B6FF1A;
+    --sun:#FFC400;
+    --radius:28px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'DM Sans',system-ui,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Bricolage Grotesque','DM Sans',sans-serif;font-weight:800;line-height:1.02;letter-spacing:-.02em}
+  .wrap{width:min(1080px,100% - 40px);margin-inline:auto}
+
+  /* Barra superior (igual aos slides: ano à esquerda, marca à direita) */
+  .topbar{display:flex;justify-content:space-between;padding:22px 0;font-size:.85rem;font-weight:500;letter-spacing:.02em}
+  .topbar.light{color:var(--cream)}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;padding-bottom:150px}
+  .hero h1{font-size:clamp(2.8rem,8vw,6rem);text-transform:uppercase;margin-top:clamp(40px,8vw,90px);max-width:12ch}
+  .hero h1 em{font-style:normal;color:var(--red);position:relative;white-space:nowrap}
+  .hero h1 em::after{
+    content:"";position:absolute;left:0;right:0;bottom:-.08em;height:.1em;background:var(--ink);border-radius:99px;
+  }
+  .hero p.lead{margin-top:28px;max-width:46ch;font-size:1.15rem}
+  .btn{
+    display:inline-flex;align-items:center;gap:12px;margin-top:34px;
+    background:var(--ink);color:var(--lime);font-weight:700;text-decoration:none;
+    padding:16px 28px;border-radius:99px;border:2px solid var(--ink);
+    transition:transform .2s, background .2s, color .2s;
+  }
+  .btn:hover{transform:translateY(-3px);background:var(--lime);color:var(--ink)}
+  .btn svg{width:22px;height:12px}
+
+  .star{position:absolute;z-index:0;width:clamp(70px,12vw,140px);fill:var(--red)}
+  .star.s1{right:6%;top:150px}
+  .star.s2{right:22%;top:420px;width:clamp(36px,6vw,64px);fill:var(--ink)}
+  .sunburst{position:absolute;right:-30px;top:-30px;width:clamp(180px,30vw,340px);stroke:var(--sun);stroke-width:9;stroke-linecap:round;fill:none}
+  .hero .wrap{position:relative;z-index:2}
+  .cta{position:relative;margin-top:34px}
+  .cta .btn{position:relative;z-index:2;margin-top:0}
+  .cta .swoosh{position:absolute;z-index:1;left:50%;top:50%;transform:translate(-50%,-50%);width:100vw;height:120px;stroke:var(--red);stroke-width:3;fill:none;pointer-events:none}
+  .semis{
+    position:absolute;left:0;right:0;bottom:0;height:78px;
+    background:radial-gradient(circle at 50% 100%,var(--ink) 0 47%,transparent 48%);
+    background-size:112px 78px;background-repeat:repeat-x;
+  }
+
+  /* FAIXA ESCURA COM PILLS */
+  .band{background:var(--ink);color:var(--cream);padding:70px 0 80px;text-align:center}
+  .band h2{font-size:clamp(2rem,5vw,3.4rem)}
+  .band h2 span{color:var(--lime)}
+  .pills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:40px}
+  .pill{
+    display:flex;align-items:center;gap:14px;text-align:left;
+    border:2px solid var(--lime);background:rgba(182,255,26,.08);
+    border-radius:99px;padding:14px 22px;font-weight:700;color:var(--lime);
+  }
+  .pill b{
+    flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;
+    background:var(--lime);color:var(--ink);font-family:'Bricolage Grotesque',sans-serif;
+  }
+  .band p.note{margin-top:34px;opacity:.85}
+
+  /* SEÇÃO DO FORMULÁRIO */
+  .formsec{position:relative;background:var(--red);padding:90px 0 110px;overflow:hidden}
+  .formsec h2{color:#fff;font-size:clamp(2.2rem,6vw,4.2rem);text-align:center}
+  .formsec p.sub{color:#fff;text-align:center;max-width:52ch;margin:18px auto 44px;font-size:1.1rem}
+  .formsec .wrap{position:relative;z-index:2}
+  .blob{position:absolute;z-index:0;fill:var(--lime)}
+  .blob.b1{left:-60px;top:30px;width:200px}
+  .blob.b2{right:-40px;bottom:20px;width:150px;fill:var(--ink)}
+  .card{
+    position:relative;z-index:2;background:var(--cream);
+    border:3px solid var(--ink);border-radius:var(--radius);
+    box-shadow:10px 10px 0 var(--ink);padding:clamp(14px,3vw,30px);
+  }
+  .card{text-align:center;padding:clamp(30px,6vw,64px) clamp(20px,5vw,60px)}
+  .card h3{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:12px}
+  .card p{max-width:44ch;margin:0 auto;font-size:1.05rem}
+  .btn.big{
+    margin-top:30px;background:var(--red);color:#fff;border-color:var(--ink);
+    font-size:clamp(1.1rem,3vw,1.5rem);padding:20px 40px;box-shadow:5px 5px 0 var(--ink);
+  }
+  .btn.big:hover{background:var(--lime);color:var(--ink);box-shadow:2px 2px 0 var(--ink);transform:translate(3px,3px)}
+  .card small{display:block;margin-top:20px;opacity:.65}
+
+  /* RODAPÉ */
+  footer{background:var(--ink);color:var(--cream);padding:60px 0 40px;text-align:center}
+  footer h2{font-size:clamp(2rem,6vw,3.6rem);color:var(--lime)}
+  footer p{margin-top:12px;opacity:.85}
+  footer small{display:block;margin-top:40px;opacity:.55}
+
+  @media (max-width:640px){
+    .hero{padding-bottom:110px}
+    .star.s2{display:none}
+    .card{box-shadow:6px 6px 0 var(--ink)}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <svg class="sunburst" viewBox="0 0 200 200" aria-hidden="true">
+    <line x1="150" y1="40" x2="190" y2="10"/><line x1="125" y1="30" x2="140" y2="-10"/>
+    <line x1="170" y1="70" x2="215" y2="55"/><line x1="100" y1="25" x2="95" y2="-15"/>
+    <line x1="180" y1="105" x2="220" y2="105"/>
+  </svg>
+  <svg class="star s1" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,2 59.2,27.8 83.9,16.1 72.2,40.8 98,50 72.2,59.2 83.9,83.9 59.2,72.2 50,98 40.8,72.2 16.1,83.9 27.8,59.2 2,50 27.8,40.8 16.1,16.1 40.8,27.8"/></svg>
+  <svg class="star s2" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,2 59.2,27.8 83.9,16.1 72.2,40.8 98,50 72.2,59.2 83.9,83.9 59.2,72.2 50,98 40.8,72.2 16.1,83.9 27.8,59.2 2,50 27.8,40.8 16.1,16.1 40.8,27.8"/></svg>
+
+  <div class="wrap">
+    <div class="topbar"><span>2026</span><span>Criaê Marketing</span></div>
+    <h1>Como está sendo <em>trabalhar</em> com a gente?</h1>
+    <p class="lead">Queremos entregar resultado e uma experiência incrível. Sua opinião sincera leva menos de 2 minutos e muda o jeito como trabalhamos.</p>
+    <div class="cta">
+      <svg class="swoosh" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path vector-effect="non-scaling-stroke" d="M0 70 C 150 10, 300 130, 500 60 S 850 20, 1000 70"/></svg>
+      <a class="btn" href="#formulario">Responder agora
+        <svg viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h19M15 1l5 5-5 5"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="semis" aria-hidden="true"></div>
+</header>
+
+<!-- FAIXA ESCURA -->
+<section class="band">
+  <div class="wrap">
+    <h2>Vamos <span>melhorar</span> juntos</h2>
+    <div class="pills">
+      <div class="pill"><b>01</b>Leva só 2 minutos</div>
+      <div class="pill"><b>02</b>Feedback sincero</div>
+      <div class="pill"><b>03</b>Melhoria contínua</div>
+    </div>
+    <p class="note">Tudo integrado, com uma equipe que já conhece você e o seu mercado.</p>
+  </div>
+</section>
+
+<!-- FORMULÁRIO -->
+<section class="formsec" id="formulario">
+  <svg class="blob b1" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,2 59.2,27.8 83.9,16.1 72.2,40.8 98,50 72.2,59.2 83.9,83.9 59.2,72.2 50,98 40.8,72.2 16.1,83.9 27.8,59.2 2,50 27.8,40.8 16.1,16.1 40.8,27.8"/></svg>
+  <svg class="blob b2" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,2 59.2,27.8 83.9,16.1 72.2,40.8 98,50 72.2,59.2 83.9,83.9 59.2,72.2 50,98 40.8,72.2 16.1,83.9 27.8,59.2 2,50 27.8,40.8 16.1,16.1 40.8,27.8"/></svg>
+
+  <div class="wrap">
+    <h2>Sua opinião<br>importa</h2>
+    <p class="sub">Responda com calma. Cada resposta nos ajuda a criar estratégias melhores para o seu negócio.</p>
+
+    <div class="card" id="card">
+      <h3>Pronto para começar?</h3>
+      <p>São poucas perguntas, rápidas de responder. Clique no botão e conte como está sendo a sua experiência com a gente.</p>
+      <a class="btn big" href="https://docs.google.com/forms/d/e/1FAIpQLSdgSCg-NrGgYR4K1FZX-bgYa_dY_5X4BoCxqUF8CgoMgjTtHQ/viewform?usp=dialog" target="_blank" rel="noopener">Responder aqui
+        <svg viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:26px;height:14px"><path d="M1 6h19M15 1l5 5-5 5"/></svg>
+      </a>
+      <small>Abre o formulário em uma nova aba · leva menos de 2 minutos</small>
+    </div>
+  </div>
+</section>
+
+<!-- RODAPÉ -->
+<footer>
+  <div class="wrap">
+    <h2>Obrigado!</h2>
+    <p>Cada feedback faz a gente crescer junto com você.</p>
+    <small>2026 · Criaê Marketing</small>
+  </div>
+</footer>
+
+</body>
+</html>
