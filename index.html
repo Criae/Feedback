@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Como está sendo trabalhar com a gente? | Criaê Marketing</title>
+<title>Portal do Cliente | Criaê Marketing</title>
+<meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -29,18 +30,21 @@
   h1,h2,h3{font-family:'Bricolage Grotesque','DM Sans',sans-serif;font-weight:800;line-height:1.02;letter-spacing:-.02em}
   .wrap{width:min(1080px,100% - 40px);margin-inline:auto}
 
-  /* Barra superior (igual aos slides: ano à esquerda, marca à direita) */
   .topbar{display:flex;justify-content:space-between;padding:22px 0;font-size:.85rem;font-weight:500;letter-spacing:.02em}
-  .topbar.light{color:var(--cream)}
 
   /* HERO */
   .hero{position:relative;overflow:hidden;padding-bottom:150px}
-  .hero h1{font-size:clamp(2.8rem,8vw,6rem);text-transform:uppercase;margin-top:clamp(40px,8vw,90px);max-width:12ch}
-  .hero h1 em{font-style:normal;color:var(--red);position:relative;white-space:nowrap}
+  .hero .tag{
+    display:inline-block;margin-top:clamp(36px,7vw,80px);
+    background:var(--ink);color:var(--lime);font-weight:700;font-size:.85rem;
+    letter-spacing:.06em;text-transform:uppercase;padding:8px 16px;border-radius:99px;
+  }
+  .hero h1{font-size:clamp(2.6rem,7.5vw,5.6rem);text-transform:uppercase;margin-top:22px;max-width:13ch}
+  .hero h1 em{font-style:normal;color:var(--red);position:relative}
   .hero h1 em::after{
     content:"";position:absolute;left:0;right:0;bottom:-.08em;height:.1em;background:var(--ink);border-radius:99px;
   }
-  .hero p.lead{margin-top:28px;max-width:46ch;font-size:1.15rem}
+  .hero p.lead{margin-top:28px;max-width:48ch;font-size:1.15rem}
   .btn{
     display:inline-flex;align-items:center;gap:12px;margin-top:34px;
     background:var(--ink);color:var(--lime);font-weight:700;text-decoration:none;
@@ -64,23 +68,30 @@
     background-size:112px 78px;background-repeat:repeat-x;
   }
 
-  /* FAIXA ESCURA COM PILLS */
-  .band{background:var(--ink);color:var(--cream);padding:70px 0 80px;text-align:center}
-  .band h2{font-size:clamp(2rem,5vw,3.4rem)}
+  /* FAIXA ESCURA COM AS 4 ÁREAS */
+  .band{background:var(--ink);color:var(--cream);padding:70px 0 90px}
+  .band h2{font-size:clamp(2rem,5vw,3.4rem);text-align:center}
   .band h2 span{color:var(--lime)}
-  .pills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:40px}
-  .pill{
-    display:flex;align-items:center;gap:14px;text-align:left;
-    border:2px solid var(--lime);background:rgba(182,255,26,.08);
-    border-radius:99px;padding:14px 22px;font-weight:700;color:var(--lime);
+  .band p.note{margin:16px auto 0;max-width:52ch;text-align:center;opacity:.85}
+  .areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:44px}
+  .area{
+    position:relative;display:flex;flex-direction:column;gap:12px;
+    border:2px solid var(--lime);background:rgba(182,255,26,.06);
+    border-radius:var(--radius);padding:26px 24px 24px;color:var(--cream);text-decoration:none;
+    transition:transform .2s, background .2s, box-shadow .2s;
   }
-  .pill b{
-    flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;
-    background:var(--lime);color:var(--ink);font-family:'Bricolage Grotesque',sans-serif;
+  .area:hover,.area:focus-visible{transform:translate(-3px,-3px);background:rgba(182,255,26,.14);box-shadow:6px 6px 0 var(--lime);outline:none}
+  .area b{
+    display:grid;place-items:center;width:46px;height:46px;border-radius:50%;
+    background:var(--lime);color:var(--ink);font-family:'Bricolage Grotesque',sans-serif;font-size:1.05rem;
   }
-  .band p.note{margin-top:34px;opacity:.85}
+  .area h3{font-size:1.6rem;color:var(--lime)}
+  .area p{font-size:.98rem;opacity:.9;flex:1}
+  .area .go{display:inline-flex;align-items:center;gap:10px;font-weight:700;color:var(--lime)}
+  .area .go svg{width:22px;height:12px}
+  .area .meta{font-size:.8rem;opacity:.6}
 
-  /* SEÇÃO DO FORMULÁRIO */
+  /* SEÇÃO VERMELHA: PASSO A PASSO */
   .formsec{position:relative;background:var(--red);padding:90px 0 110px;overflow:hidden}
   .formsec h2{color:#fff;font-size:clamp(2.2rem,6vw,4.2rem);text-align:center}
   .formsec p.sub{color:#fff;text-align:center;max-width:52ch;margin:18px auto 44px;font-size:1.1rem}
@@ -91,28 +102,66 @@
   .card{
     position:relative;z-index:2;background:var(--cream);
     border:3px solid var(--ink);border-radius:var(--radius);
-    box-shadow:10px 10px 0 var(--ink);padding:clamp(14px,3vw,30px);
+    box-shadow:10px 10px 0 var(--ink);padding:clamp(28px,5vw,54px) clamp(20px,5vw,54px);
   }
-  .card{text-align:center;padding:clamp(30px,6vw,64px) clamp(20px,5vw,60px)}
-  .card h3{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:12px}
-  .card p{max-width:44ch;margin:0 auto;font-size:1.05rem}
-  .btn.big{
-    margin-top:30px;background:var(--red);color:#fff;border-color:var(--ink);
-    font-size:clamp(1.1rem,3vw,1.5rem);padding:20px 40px;box-shadow:5px 5px 0 var(--ink);
+  .steps{list-style:none;display:grid;gap:18px;counter-reset:s}
+  .steps li{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;padding-bottom:18px;border-bottom:2px dashed rgba(14,26,18,.2)}
+  .steps li:last-child{border-bottom:0;padding-bottom:0}
+  .steps li::before{
+    counter-increment:s;content:counter(s,decimal-leading-zero);
+    display:grid;place-items:center;width:52px;height:52px;border-radius:50%;
+    background:var(--ink);color:var(--lime);font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
   }
-  .btn.big:hover{background:var(--lime);color:var(--ink);box-shadow:2px 2px 0 var(--ink);transform:translate(3px,3px)}
-  .card small{display:block;margin-top:20px;opacity:.65}
+  .steps h3{font-size:clamp(1.25rem,3vw,1.6rem)}
+  .steps p{font-size:.98rem;opacity:.8}
+  .btn.sm{margin-top:0;padding:12px 20px;font-size:.95rem;background:var(--red);color:#fff;border-color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+  .btn.sm:hover{background:var(--lime);color:var(--ink);box-shadow:1px 1px 0 var(--ink);transform:translate(3px,3px)}
+
+  /* PORTFÓLIO */
+  .port{padding:90px 0 100px}
+  .port h2{font-size:clamp(2.2rem,6vw,4rem);text-transform:uppercase}
+  .port h2 em{font-style:normal;color:var(--red)}
+  .port p.sub{margin-top:14px;max-width:52ch;font-size:1.08rem}
+  .filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+  .filters button{
+    font:inherit;font-weight:700;font-size:.92rem;cursor:pointer;
+    border:2px solid var(--ink);background:transparent;color:var(--ink);
+    padding:9px 18px;border-radius:99px;transition:background .2s,color .2s;
+  }
+  .filters button[aria-pressed="true"],.filters button:hover{background:var(--ink);color:var(--lime)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px;margin-top:34px}
+  .work{
+    display:flex;flex-direction:column;background:#fff;border:3px solid var(--ink);border-radius:22px;overflow:hidden;
+    box-shadow:6px 6px 0 var(--ink);color:var(--ink);text-decoration:none;transition:transform .2s, box-shadow .2s;
+  }
+  a.work:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--ink)}
+  .work .thumb{aspect-ratio:4/3;background:var(--ink);position:relative;overflow:hidden;border-bottom:3px solid var(--ink)}
+  .work .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .work .thumb .ph{position:absolute;inset:0;display:grid;place-items:center}
+  .work .thumb .ph svg{width:42%}
+  .work .info{padding:18px 20px 20px}
+  .work .cat{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--red)}
+  .work h3{font-size:1.35rem;margin-top:6px}
+  .work p{font-size:.95rem;opacity:.8;margin-top:6px}
 
   /* RODAPÉ */
   footer{background:var(--ink);color:var(--cream);padding:60px 0 40px;text-align:center}
   footer h2{font-size:clamp(2rem,6vw,3.6rem);color:var(--lime)}
   footer p{margin-top:12px;opacity:.85}
+  footer .btn{margin-top:26px;background:var(--lime);color:var(--ink);border-color:var(--lime)}
+  footer .btn:hover{background:var(--cream);border-color:var(--cream)}
   footer small{display:block;margin-top:40px;opacity:.55}
+
+  [hidden]{display:none!important}
 
   @media (max-width:640px){
     .hero{padding-bottom:110px}
     .star.s2{display:none}
+    .star.s1{top:64px;right:5%;width:54px}
+    .blob.b1{width:110px;left:-50px;top:10px}
     .card{box-shadow:6px 6px 0 var(--ink)}
+    .steps li{grid-template-columns:auto 1fr}
+    .steps li .btn{grid-column:1 / -1;justify-self:start}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -130,12 +179,13 @@
   <svg class="star s2" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,2 59.2,27.8 83.9,16.1 72.2,40.8 98,50 72.2,59.2 83.9,83.9 59.2,72.2 50,98 40.8,72.2 16.1,83.9 27.8,59.2 2,50 27.8,40.8 16.1,16.1 40.8,27.8"/></svg>
 
   <div class="wrap">
-    <div class="topbar"><span>2026</span><span>Criaê Marketing</span></div>
-    <h1>Como está sendo <em>trabalhar</em> com a gente?</h1>
-    <p class="lead">Queremos entregar resultado e uma experiência incrível. Sua opinião sincera leva menos de 2 minutos e muda o jeito como trabalhamos.</p>
+    <div class="topbar"><span data-ano>2026</span><span>Criaê Marketing</span></div>
+    <span class="tag">Portal do Cliente</span>
+    <h1 id="titulo">Bem-vindo à <em>Criaê</em></h1>
+    <p class="lead" id="lead">Aqui fica tudo o que você precisa para trabalhar com a gente: cadastro, briefing, feedback e o nosso portfólio. Tudo em um lugar só.</p>
     <div class="cta">
       <svg class="swoosh" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path vector-effect="non-scaling-stroke" d="M0 70 C 150 10, 300 130, 500 60 S 850 20, 1000 70"/></svg>
-      <a class="btn" href="#formulario">Responder agora
+      <a class="btn" href="#areas">Ver minhas áreas
         <svg viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h19M15 1l5 5-5 5"/></svg>
       </a>
     </div>
@@ -143,47 +193,193 @@
   <div class="semis" aria-hidden="true"></div>
 </header>
 
-<!-- FAIXA ESCURA -->
-<section class="band">
+<!-- AS 4 ÁREAS -->
+<section class="band" id="areas">
   <div class="wrap">
-    <h2>Vamos <span>melhorar</span> juntos</h2>
-    <div class="pills">
-      <div class="pill"><b>01</b>Leva só 2 minutos</div>
-      <div class="pill"><b>02</b>Feedback sincero</div>
-      <div class="pill"><b>03</b>Melhoria contínua</div>
+    <h2>Tudo <span>em um lugar</span></h2>
+    <p class="note">Escolha por onde começar. Os formulários abrem em uma nova aba e as respostas chegam direto para a nossa equipe.</p>
+    <div class="areas">
+      <a class="area" data-form="onboarding" target="_blank" rel="noopener" href="#">
+        <b>01</b><h3>Onboarding</h3>
+        <p>Seus dados, contatos, redes e materiais da marca para darmos o pontapé inicial.</p>
+        <span class="meta">cerca de 5 minutos</span>
+        <span class="go">Preencher <svg viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h19M15 1l5 5-5 5"/></svg></span>
+      </a>
+      <a class="area" data-form="briefing" target="_blank" rel="noopener" href="#">
+        <b>02</b><h3>Briefing</h3>
+        <p>Conte sobre o seu negócio, público, objetivos e referências. É a base da estratégia.</p>
+        <span class="meta">cerca de 10 minutos</span>
+        <span class="go">Preencher <svg viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h19M15 1l5 5-5 5"/></svg></span>
+      </a>
+      <a class="area" data-form="feedback" target="_blank" rel="noopener" href="#">
+        <b>03</b><h3>Feedback</h3>
+        <p>Como está sendo trabalhar com a gente? Sua opinião sincera muda o nosso jeito de trabalhar.</p>
+        <span class="meta">menos de 2 minutos</span>
+        <span class="go">Responder <svg viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h19M15 1l5 5-5 5"/></svg></span>
+      </a>
+      <a class="area" href="#portfolio">
+        <b>04</b><h3>Portfólio</h3>
+        <p>Veja alguns dos trabalhos que a Criaê já criou para outras marcas.</p>
+        <span class="meta">nesta página</span>
+        <span class="go">Ver trabalhos <svg viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h19M15 1l5 5-5 5"/></svg></span>
+      </a>
     </div>
-    <p class="note">Tudo integrado, com uma equipe que já conhece você e o seu mercado.</p>
   </div>
 </section>
 
-<!-- FORMULÁRIO -->
-<section class="formsec" id="formulario">
+<!-- PASSO A PASSO -->
+<section class="formsec" id="passos">
   <svg class="blob b1" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,2 59.2,27.8 83.9,16.1 72.2,40.8 98,50 72.2,59.2 83.9,83.9 59.2,72.2 50,98 40.8,72.2 16.1,83.9 27.8,59.2 2,50 27.8,40.8 16.1,16.1 40.8,27.8"/></svg>
   <svg class="blob b2" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,2 59.2,27.8 83.9,16.1 72.2,40.8 98,50 72.2,59.2 83.9,83.9 59.2,72.2 50,98 40.8,72.2 16.1,83.9 27.8,59.2 2,50 27.8,40.8 16.1,16.1 40.8,27.8"/></svg>
 
   <div class="wrap">
-    <h2>Sua opinião<br>importa</h2>
-    <p class="sub">Responda com calma. Cada resposta nos ajuda a criar estratégias melhores para o seu negócio.</p>
+    <h2>Seu passo<br>a passo</h2>
+    <p class="sub" id="passos-sub">Siga a ordem abaixo. Quanto mais completo, mais certeira fica a nossa estratégia para o seu negócio.</p>
 
-    <div class="card" id="card">
-      <h3>Pronto para começar?</h3>
-      <p>São poucas perguntas, rápidas de responder. Clique no botão e conte como está sendo a sua experiência com a gente.</p>
-      <a class="btn big" href="https://docs.google.com/forms/d/e/1FAIpQLSdgSCg-NrGgYR4K1FZX-bgYa_dY_5X4BoCxqUF8CgoMgjTtHQ/viewform?usp=dialog" target="_blank" rel="noopener">Responder aqui
-        <svg viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:26px;height:14px"><path d="M1 6h19M15 1l5 5-5 5"/></svg>
-      </a>
-      <small>Abre o formulário em uma nova aba · leva menos de 2 minutos</small>
+    <div class="card">
+      <ol class="steps">
+        <li>
+          <div><h3>Onboarding</h3><p>Logo no início do contrato.</p></div>
+          <a class="btn sm" data-form="onboarding" target="_blank" rel="noopener" href="#">Abrir</a>
+        </li>
+        <li>
+          <div><h3>Briefing</h3><p>Antes da primeira reunião de planejamento.</p></div>
+          <a class="btn sm" data-form="briefing" target="_blank" rel="noopener" href="#">Abrir</a>
+        </li>
+        <li>
+          <div><h3>Feedback</h3><p>Sempre que quiser, e a cada fim de ciclo.</p></div>
+          <a class="btn sm" data-form="feedback" target="_blank" rel="noopener" href="#">Abrir</a>
+        </li>
+      </ol>
     </div>
+  </div>
+</section>
+
+<!-- PORTFÓLIO -->
+<section class="port" id="portfolio">
+  <div class="wrap">
+    <h2>Nosso <em>portfólio</em></h2>
+    <p class="sub">Um pouco do que a gente já fez por outras marcas.</p>
+    <div class="filters" id="filtros" role="group" aria-label="Filtrar portfólio"></div>
+    <div class="grid" id="grade"></div>
   </div>
 </section>
 
 <!-- RODAPÉ -->
 <footer>
   <div class="wrap">
-    <h2>Obrigado!</h2>
-    <p>Cada feedback faz a gente crescer junto com você.</p>
-    <small>2026 · Criaê Marketing</small>
+    <h2 id="rodape-titulo">Bora crescer juntos!</h2>
+    <p>Ficou com alguma dúvida? A nossa equipe está por perto.</p>
+    <a class="btn" id="whats" target="_blank" rel="noopener" href="#" hidden>Falar com a equipe</a>
+    <small><span data-ano>2026</span> · Criaê Marketing</small>
   </div>
 </footer>
 
+<script src="dados/config.js"></script>
+<script src="dados/clientes.js"></script>
+<script src="dados/portfolio.js"></script>
+<script>
+(function(){
+  var cfg = window.CRIAE_CONFIG || {formularios:{}};
+  var clientes = window.CRIAE_CLIENTES || [];
+  var portfolio = window.CRIAE_PORTFOLIO || [];
+
+  // Ano
+  document.querySelectorAll('[data-ano]').forEach(function(el){ if(cfg.ano) el.textContent = cfg.ano; });
+
+  // Links dos formulários
+  document.querySelectorAll('[data-form]').forEach(function(a){
+    var url = (cfg.formularios || {})[a.getAttribute('data-form')];
+    if(url){ a.href = url; } else { a.removeAttribute('target'); a.href = '#areas'; }
+  });
+
+  // WhatsApp
+  if(cfg.whatsapp){
+    var w = document.getElementById('whats');
+    w.href = 'https://wa.me/' + String(cfg.whatsapp).replace(/\D/g,'');
+    w.hidden = false;
+  }
+
+  // Personalização pelo link: ?c=slug
+  var slug = (new URLSearchParams(location.search).get('c') || '').trim().toLowerCase();
+  var cliente = null;
+  for(var i=0;i<clientes.length;i++){ if(clientes[i].slug === slug){ cliente = clientes[i]; break; } }
+
+  if(cliente){
+    var h1 = document.getElementById('titulo');
+    h1.textContent = 'Olá, ';
+    var em = document.createElement('em');
+    em.textContent = cliente.nome;
+    h1.appendChild(em);
+    h1.appendChild(document.createTextNode('!'));
+    document.getElementById('lead').textContent =
+      'Este é o seu espaço exclusivo na Criaê. Aqui você preenche o onboarding e o briefing, envia seu feedback e conhece o nosso portfólio.';
+    document.getElementById('passos-sub').textContent =
+      'Siga a ordem abaixo, ' + cliente.nome + '. Quanto mais completo, mais certeira fica a estratégia para o seu negócio.';
+    document.getElementById('rodape-titulo').textContent = 'Bora crescer juntos, ' + cliente.nome + '!';
+    document.title = cliente.nome + ' · Portal do Cliente | Criaê Marketing';
+
+    // Leva o nome do cliente para os formulários (quando o formulário aceitar)
+    document.querySelectorAll('[data-form]').forEach(function(a){
+      if(a.href.indexOf('http') === 0){
+        try{ var u = new URL(a.href); u.searchParams.set('cliente', cliente.nome); a.href = u.toString(); }catch(e){}
+      }
+    });
+  }
+
+  // Portfólio
+  var grade = document.getElementById('grade');
+  var filtros = document.getElementById('filtros');
+  var estrela = '<svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,2 59.2,27.8 83.9,16.1 72.2,40.8 98,50 72.2,59.2 83.9,83.9 59.2,72.2 50,98 40.8,72.2 16.1,83.9 27.8,59.2 2,50 27.8,40.8 16.1,16.1 40.8,27.8"/></svg>';
+  var cores = [['#FF3B14','#B6FF1A'],['#0E1A12','#FFC400'],['#B6FF1A','#0E1A12'],['#FFC400','#FF3B14']];
+
+  function render(cat){
+    grade.innerHTML = '';
+    portfolio.forEach(function(item, idx){
+      if(cat && item.categoria !== cat) return;
+      var el = document.createElement(item.link ? 'a' : 'article');
+      el.className = 'work';
+      if(item.link){ el.href = item.link; el.target = '_blank'; el.rel = 'noopener'; }
+
+      var thumb = document.createElement('div'); thumb.className = 'thumb';
+      if(item.imagem){
+        var img = document.createElement('img'); img.src = item.imagem; img.alt = item.titulo || ''; img.loading = 'lazy';
+        thumb.appendChild(img);
+      } else {
+        var c = cores[idx % cores.length];
+        thumb.style.background = c[0];
+        var ph = document.createElement('div'); ph.className = 'ph'; ph.innerHTML = estrela;
+        ph.querySelector('svg').style.fill = c[1];
+        thumb.appendChild(ph);
+      }
+
+      var info = document.createElement('div'); info.className = 'info';
+      var s = document.createElement('span'); s.className = 'cat'; s.textContent = item.categoria || '';
+      var h = document.createElement('h3'); h.textContent = item.titulo || '';
+      var p = document.createElement('p'); p.textContent = item.descricao || '';
+      info.appendChild(s); info.appendChild(h); info.appendChild(p);
+
+      el.appendChild(thumb); el.appendChild(info);
+      grade.appendChild(el);
+    });
+  }
+
+  var cats = [];
+  portfolio.forEach(function(i){ if(i.categoria && cats.indexOf(i.categoria) < 0) cats.push(i.categoria); });
+  if(cats.length > 1){
+    ['Todos'].concat(cats).forEach(function(c, k){
+      var b = document.createElement('button');
+      b.type = 'button'; b.textContent = c; b.setAttribute('aria-pressed', k === 0 ? 'true' : 'false');
+      b.addEventListener('click', function(){
+        filtros.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+        b.setAttribute('aria-pressed','true');
+        render(k === 0 ? null : c);
+      });
+      filtros.appendChild(b);
+    });
+  }
+  render(null);
+})();
+</script>
 </body>
 </html>
