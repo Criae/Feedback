@@ -1,0 +1,93 @@
+/* ============ EXPERIÊNCIA DE ONBOARDING ============ */
+.ob{
+  position:fixed;inset:0;z-index:100;overflow:hidden;
+  background:var(--ink);color:var(--cream);
+  display:flex;flex-direction:column;
+}
+.ob[hidden]{display:none!important}
+body.ob-open{overflow:hidden}
+
+/* controles do topo */
+.ob-top{position:relative;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,4vw,40px)}
+.ob-brand{font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--lime)}
+.ob-ctrls{display:flex;gap:10px}
+.ob-icon{
+  width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer;
+  background:transparent;border:2px solid rgba(244,241,232,.35);color:var(--cream);
+  transition:border-color .2s, background .2s, color .2s;
+}
+.ob-icon:hover,.ob-icon:focus-visible{border-color:var(--lime);color:var(--lime);outline:none}
+.ob-icon svg{width:20px;height:20px}
+
+/* camada da explosão */
+.ob-burst{position:absolute;inset:0;z-index:1;pointer-events:none}
+.ob-burst svg{position:absolute;left:50%;top:50%;width:var(--s,40px);height:var(--s,40px);margin:calc(var(--s,40px) / -2) 0 0 calc(var(--s,40px) / -2);fill:var(--c,var(--red));opacity:0}
+.ob-rays{position:absolute;left:50%;top:50%;width:min(120vmax,1600px);height:min(120vmax,1600px);transform:translate(-50%,-50%);z-index:0;pointer-events:none;opacity:0}
+.ob-rays line{stroke:var(--sun);stroke-width:.35;stroke-linecap:round;opacity:.22}
+
+/* palco central */
+.ob-stage{position:relative;z-index:3;flex:1;display:grid;place-items:center;padding:0 clamp(18px,5vw,60px) 40px;overflow-y:auto}
+.ob-scene{width:min(900px,100%);text-align:center}
+.ob-scene[hidden]{display:none!important}
+
+/* tela 1: olá */
+.ob-kicker{display:inline-block;background:var(--lime);color:var(--ink);font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;border-radius:99px}
+.ob-name{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;text-transform:uppercase;line-height:.95;letter-spacing:-.02em;
+  font-size:clamp(3rem,11vw,8.5rem);margin-top:22px;color:var(--cream)}
+.ob-name .w{display:inline-block;white-space:nowrap}
+.ob-name .l{display:inline-block;will-change:transform}
+.ob-name .hl{color:var(--red)}
+.ob-hello p{max-width:46ch;margin:22px auto 0;font-size:1.15rem;opacity:.9}
+.ob-btn{
+  display:inline-flex;align-items:center;gap:12px;margin-top:34px;cursor:pointer;
+  font:inherit;font-weight:700;font-size:1.05rem;
+  background:var(--lime);color:var(--ink);border:2px solid var(--lime);
+  padding:16px 30px;border-radius:99px;box-shadow:5px 5px 0 var(--red);
+  transition:transform .2s, box-shadow .2s, background .2s;
+}
+.ob-btn:hover,.ob-btn:focus-visible{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--red);outline:none}
+.ob-btn svg{width:22px;height:12px}
+.ob-btn.ghost{background:transparent;color:var(--cream);border-color:rgba(244,241,232,.5);box-shadow:none}
+.ob-btn.ghost:hover,.ob-btn.ghost:focus-visible{border-color:var(--lime);color:var(--lime);transform:none}
+
+/* tela 2: passo a passo */
+.ob-progress{display:flex;gap:6px;justify-content:center;margin-bottom:clamp(26px,5vh,48px)}
+.ob-progress button{width:clamp(22px,6vw,54px);height:8px;border-radius:99px;border:0;cursor:pointer;background:rgba(244,241,232,.2);transition:background .3s}
+.ob-progress button.on{background:var(--lime)}
+.ob-progress button.now{background:var(--red)}
+.ob-slide{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,5vw,56px);align-items:center;text-align:left}
+.ob-num{position:relative;width:clamp(120px,22vw,220px);aspect-ratio:1;display:grid;place-items:center}
+.ob-num svg{position:absolute;inset:0;width:100%;height:100%;fill:var(--red)}
+.ob-num span{position:relative;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.4rem,6vw,4.4rem);color:var(--cream)}
+.ob-step-k{font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lime)}
+.ob-slide h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.2rem,6vw,4rem);line-height:1;margin-top:8px}
+.ob-slide p{margin-top:16px;font-size:clamp(1.05rem,2.2vw,1.25rem);max-width:44ch;opacity:.92}
+.ob-tip{display:inline-flex;gap:10px;align-items:flex-start;margin-top:22px;padding:12px 16px;border-radius:16px;background:rgba(182,255,26,.1);border:1px solid rgba(182,255,26,.4);font-size:.98rem}
+.ob-tip b{color:var(--lime)}
+.ob-nav{display:flex;justify-content:space-between;align-items:center;margin-top:clamp(30px,6vh,56px)}
+.ob-nav .ob-btn{margin-top:0}
+
+/* tela 3: combinados + equipe */
+.ob-final h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.2rem,6vw,4rem);line-height:1}
+.ob-final h2 em{font-style:normal;color:var(--lime)}
+.ob-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:34px;text-align:left}
+.ob-box{border:2px solid rgba(244,241,232,.25);border-radius:24px;padding:24px}
+.ob-box h4{font-family:'Bricolage Grotesque',sans-serif;font-size:1.3rem;color:var(--lime);margin-bottom:14px}
+.ob-rules{list-style:none;display:grid;gap:12px}
+.ob-rules li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}
+.ob-rules li svg{width:22px;height:22px;fill:var(--red);margin-top:2px}
+.ob-team{display:grid;gap:14px}
+.ob-person{display:flex;align-items:center;gap:14px}
+.ob-avatar{flex:none;width:52px;height:52px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:var(--red);color:var(--cream);font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem}
+.ob-avatar img{width:100%;height:100%;object-fit:cover}
+.ob-person small{display:block;opacity:.7}
+.ob-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:34px}
+.ob-actions .ob-btn{margin-top:0;text-decoration:none}
+
+@media (max-width:640px){
+  .ob-slide{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .ob-slide p{margin-inline:auto}
+  .ob-num{width:110px}
+  .ob-nav .ob-btn{padding:13px 20px;font-size:.95rem}
+}
+@media (prefers-reduced-motion:reduce){.ob *{transition:none!important}}

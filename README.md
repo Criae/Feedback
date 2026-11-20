@@ -15,10 +15,17 @@ Exemplo: `?c=ketellen` mostra "Olá, Ketellen!". Sem `?c=`, o portal abre com um
 | Arquivo | O que tem |
 |---|---|
 | `dados/clientes.js` | Lista de clientes (nome + slug), gerada do banco **CLIENTES [AD]** no Notion |
-| `dados/config.js` | Links dos 3 formulários do Notion e WhatsApp da equipe |
+| `dados/config.js` | Links dos formulários de Briefing e Feedback no Notion e WhatsApp da equipe |
+| `dados/onboarding.js` | Textos da experiência de Onboarding: etapas, combinados e equipe |
+| `assets/onboarding.*` | Animação de boas-vindas e passo a passo (não precisa mexer) |
 | `dados/portfolio.js` | Trabalhos do portfólio (título, categoria, descrição, imagem, link) |
 | `portfolio/` | Pasta para as imagens do portfólio |
 | `feedback-google.html` | Página antiga de feedback (Google Forms), mantida como referência |
+
+## Onboarding
+
+O botão Onboarding abre uma experiência de boas-vindas: explosão de estrelas com som, o nome do cliente, o passo a passo de como a Criaê trabalha, os combinados e a equipe. No fim, leva ao Briefing.
+Link direto: `?c=<slug>&boasvindas`.
 
 ## Formulários no Notion
 
